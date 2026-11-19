@@ -51,7 +51,7 @@ jobs:
         if: matrix.php == '8.4' && matrix.dependencies == 'highest'
         run: |
           set +e
-          out="$(vendor/bin/phpunit --filter EndToEndTest --testdox 2>&1)"
+          out="$(vendor/bin/phpunit --filter EndToEndTest --testdox --colors=never 2>&1)"
           rc=$?
           set -e
           printf '%s\n' "$out"
