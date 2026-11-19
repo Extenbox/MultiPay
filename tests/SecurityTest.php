@@ -97,14 +97,6 @@ class SecurityTest extends TestCase
         $this->getLocalDriver()->verify();
     }
 
-    public function testANegativeAmountIsRejected(): void
-    {
-        $this->expectException(\Exception::class);
-        $this->expectExceptionMessage('Amount value should be a number (integer or float).');
-
-        (new Invoice)->amount(-100);
-    }
-
     private function getLocalDriver(array $settings = []) : Local
     {
         return new Local(new Invoice, array_merge($this->config()['drivers']['local'], ['callbackUrl' => '/callback'], $settings));

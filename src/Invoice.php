@@ -71,7 +71,7 @@ class Invoice
      */
     public function amount(mixed $amount): static
     {
-        if (!is_numeric($amount) || $amount < 0) {
+        if (!is_numeric($amount)) {
             throw new Exception('Amount value should be a number (integer or float).');
         }
 
