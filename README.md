@@ -12,7 +12,6 @@
 
 This is a PHP Package for Payment Gateway Integration. This package supports `PHP 8.4+`.
 
-
 For **Laravel** integration you can use [shetabit/payment](https://github.com/shetabit/payment) package.
 
 > This package works with multiple drivers, and you can create custom drivers if you can't find them in the [current drivers list](#list-of-available-drivers) (below list).
@@ -750,11 +749,10 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 
 ## Security
 
-If you discover any security related issues, please email khanzadimahdi@gmail.com instead of using the issue tracker.
+If you discover any security related issues, please report them privately through the Security tab of this repository instead of using the issue tracker.
 
 ## Credits
 
-- [Mahdi khanzadi][link-author]
 - [All Contributors][link-contributors]
 
 ## License
@@ -770,12 +768,10 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-coverage]: https://img.shields.io/codecov/c/github/Extenbox/MultiPay/master?label=Coverage&style=flat-square
 [link-fa]: README-FA.md
 [link-en]: README.md
-[link-zh]: README-ZH.md
 [link-packagist]: https://packagist.org/packages/shetabit/multipay
 [link-actions]: https://github.com/Extenbox/MultiPay/actions
 [link-tests]: https://github.com/Extenbox/MultiPay/actions/workflows/tests.yml
 [link-code-style]: https://github.com/Extenbox/MultiPay/actions/workflows/code-style.yml
 [link-static-analysis]: https://github.com/Extenbox/MultiPay/actions/workflows/static-analysis.yml
 [link-coverage]: https://codecov.io/gh/Extenbox/MultiPay
-[link-author]: https://github.com/khanzadimahdi
 [link-contributors]: ../../contributors

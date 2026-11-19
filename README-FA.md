@@ -21,11 +21,9 @@
 
 - [داکیومنت فارسی][link-fa]
 - [english documents][link-en]
-- [中文文档][link-zh]
 
 
 در صورتی که از این پکیج خوشتون آمده و ازش استفاده می‌کنید می‌تونید با پرداخت مبلغ اندکی من رو حمایت کنید تا این پکیج رو بیشتر توسعه بدم و درگاه‌های جدیدتری بهش اضافه کنم.
-
 
 درصورتی که از Laravel استفاده میکنید میتونید از پکیج [shetabit/payment](https://github.com/shetabit/payment) استفاده کنید.
 
@@ -840,11 +838,10 @@ make help              # لیست تمام دستورات موجود
 
 ## امنیت
 
-در صورتی که مشکل امنیتی در پکیج پیدا کردید به منظور رفع مشکل با ایمیل khanzadimahdi@gmail.com در ارتباط باشید.
+در صورتی که مشکل امنیتی در پکیج پیدا کردید، لطفاً آن را به‌صورت خصوصی از تب Security (Security advisories) مخزن گزارش دهید و از issue استفاده نکنید.
 
 ## توسعه دهندگان
 
-- [Mahdi khanzadi][link-author]
 - [All Contributors][link-contributors]
 
 ## لایسنس
@@ -863,12 +860,10 @@ make help              # لیست تمام دستورات موجود
 
 [link-fa]: README-FA.md
 [link-en]: README.md
-[link-zh]: README-ZH.md
 [link-packagist]: https://packagist.org/packages/shetabit/multipay
 [link-actions]: https://github.com/Extenbox/MultiPay/actions
 [link-tests]: https://github.com/Extenbox/MultiPay/actions/workflows/tests.yml
 [link-code-style]: https://github.com/Extenbox/MultiPay/actions/workflows/code-style.yml
 [link-static-analysis]: https://github.com/Extenbox/MultiPay/actions/workflows/static-analysis.yml
 [link-coverage]: https://codecov.io/gh/Extenbox/MultiPay
-[link-author]: https://github.com/khanzadimahdi
 [link-contributors]: ../../contributors
