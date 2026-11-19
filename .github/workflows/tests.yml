@@ -44,6 +44,27 @@ jobs:
       - name: Run test suite
         run: composer test
 
+      # Publish the end-to-end run of the payment flow as an annotation, so the
+      # result of the whole purchase -> pay -> verify journey is readable on the
+      # commit without digging through the job logs.
+      - name: Publish the end-to-end result
+        if: matrix.php == '8.4' && matrix.dependencies == 'highest'
+        run: |
+          set +e
+          out="$(vendor/bin/phpunit --filter EndToEndTest --testdox 2>&1)"
+          rc=$?
+          set -e
+          printf '%s\n' "$out"
+          {
+            echo '### End-to-end payment flow'
+            echo '```'
+            printf '%s\n' "$out"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          line="$(printf '%s' "$out" | LC_ALL=C tr -cd '\11\12\15\40-\176' | tr '\n' ' ' | tr -s ' ' | cut -c1-400)"
+          printf '::notice title=End-to-end payment flow::%s (exit=%s)\n' "$line" "$rc"
+          exit $rc
+
   coverage:
     name: Code coverage
     runs-on: ubuntu-latest
