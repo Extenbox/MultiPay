@@ -1,6 +1,6 @@
 <?php
 
-namespace Shetabit\Multipay\Contracts;
+namespace Extenbox\Multipay\Contracts;
 
 use Carbon\Carbon;
 

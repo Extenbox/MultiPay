@@ -1,6 +1,6 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Support;
+namespace Extenbox\Multipay\Tests\Support;
 
 use RuntimeException;
 

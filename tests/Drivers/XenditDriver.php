@@ -1,12 +1,12 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
-use Shetabit\Multipay\Abstracts\Driver;
-use Shetabit\Multipay\Contracts\ReceiptInterface;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Receipt;
-use Shetabit\Multipay\RedirectionForm;
+use Extenbox\Multipay\Abstracts\Driver;
+use Extenbox\Multipay\Contracts\ReceiptInterface;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Receipt;
+use Extenbox\Multipay\RedirectionForm;
 
 class XenditDriver extends Driver
 {

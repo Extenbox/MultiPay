@@ -1,12 +1,12 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
-use Shetabit\Multipay\Drivers\SnappPay\SnappPay;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Tests\Support\StubServer;
-use Shetabit\Multipay\Constants\IranCurrency;
+use Extenbox\Multipay\Drivers\SnappPay\SnappPay;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Tests\Support\StubServer;
+use Extenbox\Multipay\Constants\IranCurrency;
 
 /**
  * Like the digipay driver, snapp pay authenticates itself while it is being

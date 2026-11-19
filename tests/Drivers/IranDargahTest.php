@@ -1,12 +1,12 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
-use Shetabit\Multipay\Constants\IranCurrency;
-use Shetabit\Multipay\Drivers\IranDargah\IranDargah;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Invoice;
+use Extenbox\Multipay\Constants\IranCurrency;
+use Extenbox\Multipay\Drivers\IranDargah\IranDargah;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Invoice;
 
 class IranDargahTest extends DriverTestCase
 {

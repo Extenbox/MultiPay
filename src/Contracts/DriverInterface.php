@@ -1,9 +1,9 @@
 <?php
 
-namespace Shetabit\Multipay\Contracts;
+namespace Extenbox\Multipay\Contracts;
 
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\RedirectionForm;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\RedirectionForm;
 
 interface DriverInterface
 {

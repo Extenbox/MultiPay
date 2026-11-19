@@ -1,9 +1,9 @@
 <?php
 
-namespace Shetabit\Multipay;
+namespace Extenbox\Multipay;
 
 use Ramsey\Uuid\Uuid;
-use Shetabit\Multipay\Traits\HasDetail;
+use Extenbox\Multipay\Traits\HasDetail;
 use Exception;
 
 class Invoice

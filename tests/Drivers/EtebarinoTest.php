@@ -1,11 +1,11 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
-use Shetabit\Multipay\Drivers\Etebarino\Etebarino;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Tests\Support\StubServer;
+use Extenbox\Multipay\Drivers\Etebarino\Etebarino;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Tests\Support\StubServer;
 
 /**
  * The driver builds its http client inside the method that uses it, so it is

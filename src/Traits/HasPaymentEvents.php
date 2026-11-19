@@ -1,8 +1,8 @@
 <?php
 
-namespace Shetabit\Multipay\Traits;
+namespace Extenbox\Multipay\Traits;
 
-use Shetabit\Multipay\EventEmitter;
+use Extenbox\Multipay\EventEmitter;
 
 trait HasPaymentEvents
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
 /**
  * A class that is *not* a payment driver, used to assert that the payment

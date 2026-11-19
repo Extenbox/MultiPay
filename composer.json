@@ -1,9 +1,8 @@
 {
-    "name": "shetabit/multipay",
+    "name": "extenbox/multipay",
     "type": "library",
     "description": "PHP Payment Gateway Integration Package",
     "keywords": [
-        "shetabit",
         "gateway",
         "bank",
         "payment",
@@ -79,9 +78,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Mahdi Khanzadi",
-            "email": "khanzadimahdi@gmail.com",
-            "homepage": "https://github.com/shetabit",
+            "name": "Extenbox",
+            "homepage": "https://github.com/Extenbox",
             "role": "Developer"
         }
     ],
@@ -104,12 +102,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Shetabit\\Multipay\\": "src"
+            "Extenbox\\Multipay\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Shetabit\\Multipay\\Tests\\": "tests"
+            "Extenbox\\Multipay\\Tests\\": "tests"
         }
     },
     "scripts": {

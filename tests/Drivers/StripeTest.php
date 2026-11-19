@@ -1,11 +1,11 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
-use Shetabit\Multipay\Abstracts\Driver;
-use Shetabit\Multipay\Drivers\Stripe\Stripe;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Abstracts\Driver;
+use Extenbox\Multipay\Drivers\Stripe\Stripe;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
 
 class StripeTest extends DriverTestCase
 {

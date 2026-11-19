@@ -1,13 +1,13 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\Attributes\DataProvider;
-use Shetabit\Multipay\Drivers\Skrill\Skrill;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Invoice;
+use Extenbox\Multipay\Drivers\Skrill\Skrill;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Invoice;
 
 class SkrillTest extends DriverTestCase
 {

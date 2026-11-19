@@ -1,12 +1,12 @@
 <?php
 
-namespace Shetabit\Multipay\Tests;
+namespace Extenbox\Multipay\Tests;
 
-use Shetabit\Multipay\Abstracts\Driver;
-use Shetabit\Multipay\Constants\IranCurrency;
-use Shetabit\Multipay\Contracts\DriverInterface;
-use Shetabit\Multipay\Payment;
-use Shetabit\Multipay\Tests\Mocks\MockPaymentManager;
+use Extenbox\Multipay\Abstracts\Driver;
+use Extenbox\Multipay\Constants\IranCurrency;
+use Extenbox\Multipay\Contracts\DriverInterface;
+use Extenbox\Multipay\Payment;
+use Extenbox\Multipay\Tests\Mocks\MockPaymentManager;
 use ReflectionClass;
 
 class ConfigTest extends TestCase

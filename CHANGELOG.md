@@ -24,6 +24,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
   configuration section it never had. Both were unreachable before.
 
 ### Changed
+- **Breaking:** the package and its namespace were renamed to `extenbox/multipay` and `Extenbox\Multipay`: the
+  `composer require` command and every `use` statement have to follow.
 - **Breaking:** PHP 8.4 is now the minimum required version (was PHP 8.0).
 - The package was modernized for PHP 8.4. Every parameter, return value and property of `src/` declares a type now
   (365 parameters, 466 return values and 103 properties, none left untyped), promoted constructor properties and
@@ -34,13 +36,13 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - **Breaking:** `DriverInterface::purchase()` and `Driver::purchase()` declare `string|int|null`, and
   `DriverInterface::amount()` / `detail()` declare `static`. A custom driver has to declare compatible types, and the
   driver example of the readme files shows them.
-- **Breaking:** `Shetabit\Multipay\Abstracts\Driver` now declares `protected Invoice $invoice` and
+- **Breaking:** `Extenbox\Multipay\Abstracts\Driver` now declares `protected Invoice $invoice` and
   `protected object $settings` with types. A custom driver must **remove** its own `protected $invoice;` and
   `protected $settings;` declarations, otherwise PHP refuses to load it ("Type of ...::$invoice must be
-  Shetabit\Multipay\Invoice"). The bundled drivers no longer redeclare them either.
-- **Breaking:** `Shetabit\Multipay\Contracts\DriverInterface` declares `getInvoice(): Invoice`, which the payment
+  Extenbox\Multipay\Invoice"). The bundled drivers no longer redeclare them either.
+- **Breaking:** `Extenbox\Multipay\Contracts\DriverInterface` declares `getInvoice(): Invoice`, which the payment
   manager and the payment events have always relied on. Drivers that extend the abstract `Driver` already have it.
-- **Breaking:** `Shetabit\Multipay\Contracts\ReceiptInterface::getDetail()` now declares `string $name` and a `mixed`
+- **Breaking:** `Extenbox\Multipay\Contracts\ReceiptInterface::getDetail()` now declares `string $name` and a `mixed`
   return type.
 - **Breaking:** `Payment::validateInvoice()` and its calls were removed: with a typed `Invoice` property, an invoice
   always exists, so `InvoiceNotFoundException` could no longer be thrown from there. The exception class stays.
@@ -50,7 +52,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 - **Breaking:** the dependencies were narrowed down to their latest major versions: `nesbot/carbon: ^3.13`,
   `chillerlan/php-cache: ^5.1` and `ramsey/uuid: ^4.9`.
 - `guzzlehttp/guzzle` is required as `^7.8.2|^8.0`. Guzzle 8 alone would make the package uninstallable next to
-  `laravel/framework`, which requires `^7.8.2`, and with it `shetabit/payment`. The package only uses `Client`,
+  `laravel/framework`, which requires `^7.8.2`. The package only uses `Client`,
   `RequestOptions` and `GuzzleException`, which behave the same in both majors, and the test suite runs against both.
 - The development dependencies were updated: PHPUnit 13, PHP_CodeSniffer 4, PHPStan 2.2 and Rector 2.6.
 - `phpunit.xml` was migrated to the current PHPUnit schema and made strict about risky tests, warnings, notices and
@@ -62,7 +64,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
   `getFreshDriverInstance()` could never run and went with it.
 - The Travis CI configuration (`.travis.yml`), replaced by GitHub Actions.
 - The StyleCI configuration (`.styleci.yml`), replaced by the PHP_CodeSniffer workflow.
-- The unused and broken `Shetabit\Multipay\Tests\Traits\DriverCommon` test trait.
+- The unused and broken `Extenbox\Multipay\Tests\Traits\DriverCommon` test trait.
 - The StyleCI, Scrutinizer and Code Climate badges from the readme files, replaced by the workflow badges and a code
   coverage badge.
 

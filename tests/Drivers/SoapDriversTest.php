@@ -1,17 +1,17 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
-use Shetabit\Multipay\Drivers\Behpardakht\Behpardakht;
-use Shetabit\Multipay\Drivers\Parsian\Parsian;
-use Shetabit\Multipay\Drivers\Saman\Saman;
-use Shetabit\Multipay\Drivers\Yekpay\Yekpay;
-use Shetabit\Multipay\Drivers\Zarinpal\Strategies\Zaringate;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Tests\TestCase;
+use Extenbox\Multipay\Drivers\Behpardakht\Behpardakht;
+use Extenbox\Multipay\Drivers\Parsian\Parsian;
+use Extenbox\Multipay\Drivers\Saman\Saman;
+use Extenbox\Multipay\Drivers\Yekpay\Yekpay;
+use Extenbox\Multipay\Drivers\Zarinpal\Strategies\Zaringate;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Tests\TestCase;
 use ReflectionClass;
-use Shetabit\Multipay\Request;
+use Extenbox\Multipay\Request;
 
 /**
  * These drivers talk SOAP to their gateway and build the soap client inside the

@@ -1,12 +1,12 @@
 <?php
-namespace Shetabit\Multipay\Drivers\Jibit;
+namespace Extenbox\Multipay\Drivers\Jibit;
 
 use Psr\SimpleCache\CacheException;
 use Psr\SimpleCache\InvalidArgumentException;
 use Psr\SimpleCache\CacheInterface;
 use chillerlan\SimpleCache\CacheOptions;
 use chillerlan\SimpleCache\FileCache;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
 
 class JibitClient
 {

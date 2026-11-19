@@ -1,16 +1,16 @@
 <?php
 
-namespace Shetabit\Multipay\Drivers\Bitpay;
+namespace Extenbox\Multipay\Drivers\Bitpay;
 
-use Shetabit\Multipay\Abstracts\Driver;
-use Shetabit\Multipay\Contracts\ReceiptInterface;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Receipt;
-use Shetabit\Multipay\RedirectionForm;
-use Shetabit\Multipay\Request;
-use Shetabit\Multipay\Traits\HasIranCurrency;
+use Extenbox\Multipay\Abstracts\Driver;
+use Extenbox\Multipay\Contracts\ReceiptInterface;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Receipt;
+use Extenbox\Multipay\RedirectionForm;
+use Extenbox\Multipay\Request;
+use Extenbox\Multipay\Traits\HasIranCurrency;
 
 class Bitpay extends Driver
 {
@@ -35,7 +35,7 @@ class Bitpay extends Driver
     /**
      * @return string
      *
-     * @throws \Shetabit\Multipay\Exceptions\PurchaseFailedException
+     * @throws \Extenbox\Multipay\Exceptions\PurchaseFailedException
      */
     public function purchase(): string|int|null
     {
@@ -71,7 +71,7 @@ class Bitpay extends Driver
     }
 
     /**
-     * @throws \Shetabit\Multipay\Exceptions\InvalidPaymentException
+     * @throws \Extenbox\Multipay\Exceptions\InvalidPaymentException
      */
     public function verify(): ReceiptInterface
     {

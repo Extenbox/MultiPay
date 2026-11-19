@@ -1,10 +1,10 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
-use Shetabit\Multipay\Drivers\Pasargad\Pasargad;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\Constants\IranCurrency;
+use Extenbox\Multipay\Drivers\Pasargad\Pasargad;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Constants\IranCurrency;
 
 class PasargadTest extends DriverTestCase
 {

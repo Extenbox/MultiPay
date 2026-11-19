@@ -1,6 +1,6 @@
 <?php
 
-namespace Shetabit\Multipay;
+namespace Extenbox\Multipay;
 
 use Exception;
 use JsonSerializable;

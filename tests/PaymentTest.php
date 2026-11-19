@@ -1,16 +1,16 @@
 <?php
 
-namespace Shetabit\Multipay\Tests;
+namespace Extenbox\Multipay\Tests;
 
 use Carbon\Carbon;
-use Shetabit\Multipay\Contracts\ReceiptInterface;
-use Shetabit\Multipay\Exceptions\DriverNotFoundException;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Payment;
-use Shetabit\Multipay\RedirectionForm;
-use Shetabit\Multipay\Tests\Drivers\BarDriver;
-use Shetabit\Multipay\Tests\Drivers\NotADriver;
-use Shetabit\Multipay\Tests\Mocks\MockPaymentManager;
+use Extenbox\Multipay\Contracts\ReceiptInterface;
+use Extenbox\Multipay\Exceptions\DriverNotFoundException;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Payment;
+use Extenbox\Multipay\RedirectionForm;
+use Extenbox\Multipay\Tests\Drivers\BarDriver;
+use Extenbox\Multipay\Tests\Drivers\NotADriver;
+use Extenbox\Multipay\Tests\Mocks\MockPaymentManager;
 use Exception;
 
 class PaymentTest extends TestCase
@@ -58,7 +58,7 @@ class PaymentTest extends TestCase
     {
         $config = $this->config();
         $config['drivers']['ghost'] = ['callbackUrl' => '/callback'];
-        $config['map']['ghost'] = 'Shetabit\Multipay\Drivers\Ghost\Ghost';
+        $config['map']['ghost'] = 'Extenbox\Multipay\Drivers\Ghost\Ghost';
 
         $this->expectException(DriverNotFoundException::class);
         $this->expectExceptionMessage('Driver source not found. Please update the package.');

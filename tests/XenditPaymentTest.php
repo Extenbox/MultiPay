@@ -1,11 +1,11 @@
 <?php
 
-namespace Shetabit\Multipay\Tests;
+namespace Extenbox\Multipay\Tests;
 
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\RedirectionForm;
-use Shetabit\Multipay\Tests\Drivers\XenditDriver;
-use Shetabit\Multipay\Tests\Mocks\MockPaymentManager;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\RedirectionForm;
+use Extenbox\Multipay\Tests\Drivers\XenditDriver;
+use Extenbox\Multipay\Tests\Mocks\MockPaymentManager;
 
 class XenditPaymentTest extends TestCase
 {

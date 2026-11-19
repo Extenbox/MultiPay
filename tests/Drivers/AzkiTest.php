@@ -1,12 +1,12 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
-use Shetabit\Multipay\Drivers\Azki\Azki;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Abstracts\Driver;
-use Shetabit\Multipay\Constants\IranCurrency;
+use Extenbox\Multipay\Drivers\Azki\Azki;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Abstracts\Driver;
+use Extenbox\Multipay\Constants\IranCurrency;
 
 class AzkiTest extends DriverTestCase
 {

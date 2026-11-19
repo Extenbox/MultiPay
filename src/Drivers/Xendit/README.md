@@ -33,8 +33,8 @@ Add Xendit configuration to your payment config:
 ### Basic Payment Flow
 
 ```php
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Payment;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Payment;
 
 // Create an invoice
 $invoice = new Invoice;
@@ -58,7 +58,7 @@ return $payment->pay();
 ### Payment Verification
 
 ```php
-use Shetabit\Multipay\Payment;
+use Extenbox\Multipay\Payment;
 
 // Verify payment (usually in webhook or return URL handler)
 $payment = Payment::via('xendit');
@@ -73,7 +73,7 @@ try {
     
     // Handle successful payment
     
-} catch (\Shetabit\Multipay\Exceptions\InvalidPaymentException $e) {
+} catch (\Extenbox\Multipay\Exceptions\InvalidPaymentException $e) {
     // Payment failed or invalid
     // Handle failed payment
 }

@@ -1,18 +1,18 @@
 <?php
 
-namespace Shetabit\Multipay\Drivers\Zarinpal;
+namespace Extenbox\Multipay\Drivers\Zarinpal;
 
-use Shetabit\Multipay\Abstracts\Driver;
-use Shetabit\Multipay\Contracts\DriverInterface;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Contracts\ReceiptInterface;
-use Shetabit\Multipay\Drivers\Zarinpal\Strategies\Normal;
-use Shetabit\Multipay\Drivers\Zarinpal\Strategies\Sandbox;
-use Shetabit\Multipay\Drivers\Zarinpal\Strategies\Zaringate;
-use Shetabit\Multipay\Exceptions\DriverNotFoundException;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\RedirectionForm;
+use Extenbox\Multipay\Abstracts\Driver;
+use Extenbox\Multipay\Contracts\DriverInterface;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Contracts\ReceiptInterface;
+use Extenbox\Multipay\Drivers\Zarinpal\Strategies\Normal;
+use Extenbox\Multipay\Drivers\Zarinpal\Strategies\Sandbox;
+use Extenbox\Multipay\Drivers\Zarinpal\Strategies\Zaringate;
+use Extenbox\Multipay\Exceptions\DriverNotFoundException;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\RedirectionForm;
 
 class Zarinpal extends Driver
 {

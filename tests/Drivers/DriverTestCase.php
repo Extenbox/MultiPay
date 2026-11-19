@@ -1,6 +1,6 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
@@ -8,11 +8,11 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\RequestInterface;
-use Shetabit\Multipay\Abstracts\Driver;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Request;
-use Shetabit\Multipay\Tests\Support\StubServer;
-use Shetabit\Multipay\Tests\TestCase;
+use Extenbox\Multipay\Abstracts\Driver;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Request;
+use Extenbox\Multipay\Tests\Support\StubServer;
+use Extenbox\Multipay\Tests\TestCase;
 use ReflectionProperty;
 use RecursiveIteratorIterator;
 use RecursiveDirectoryIterator;

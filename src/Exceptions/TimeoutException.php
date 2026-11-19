@@ -1,6 +1,6 @@
 <?php
 
-namespace Shetabit\Multipay\Exceptions;
+namespace Extenbox\Multipay\Exceptions;
 
 class TimeoutException extends PurchaseFailedException
 {

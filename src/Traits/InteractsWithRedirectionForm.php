@@ -1,8 +1,8 @@
 <?php
 
-namespace Shetabit\Multipay\Traits;
+namespace Extenbox\Multipay\Traits;
 
-use Shetabit\Multipay\RedirectionForm;
+use Extenbox\Multipay\RedirectionForm;
 
 trait InteractsWithRedirectionForm
 {

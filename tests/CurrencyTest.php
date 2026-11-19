@@ -1,8 +1,8 @@
 <?php
 
-namespace Shetabit\Multipay\Tests;
+namespace Extenbox\Multipay\Tests;
 
-use Shetabit\Multipay\Constants\IranCurrency;
+use Extenbox\Multipay\Constants\IranCurrency;
 
 class CurrencyTest extends TestCase
 {

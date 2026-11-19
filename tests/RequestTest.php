@@ -1,8 +1,8 @@
 <?php
 
-namespace Shetabit\Multipay\Tests;
+namespace Extenbox\Multipay\Tests;
 
-use Shetabit\Multipay\Request;
+use Extenbox\Multipay\Request;
 
 class RequestTest extends TestCase
 {

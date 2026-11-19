@@ -1,8 +1,8 @@
 <?php
 
-namespace Shetabit\Multipay\Tests;
+namespace Extenbox\Multipay\Tests;
 
-use Shetabit\Multipay\EventEmitter;
+use Extenbox\Multipay\EventEmitter;
 
 class EventEmitterTest extends TestCase
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Shetabit\Multipay;
+namespace Extenbox\Multipay;
 
-use Shetabit\Multipay\Abstracts\Receipt as ReceiptAbstract;
-use Shetabit\Multipay\Traits\HasDetail;
+use Extenbox\Multipay\Abstracts\Receipt as ReceiptAbstract;
+use Extenbox\Multipay\Traits\HasDetail;
 
 class Receipt extends ReceiptAbstract
 {

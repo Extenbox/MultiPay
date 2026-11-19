@@ -1,9 +1,9 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Mocks;
+namespace Extenbox\Multipay\Tests\Mocks;
 
-use Shetabit\Multipay\Payment;
-use Shetabit\Multipay\Invoice;
+use Extenbox\Multipay\Payment;
+use Extenbox\Multipay\Invoice;
 
 class MockPaymentManager extends Payment
 {

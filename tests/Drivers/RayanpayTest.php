@@ -1,13 +1,13 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
-use Shetabit\Multipay\Drivers\Rayanpay\Rayanpay;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Tests\Support\StubServer;
-use Shetabit\Multipay\Constants\IranCurrency;
+use Extenbox\Multipay\Drivers\Rayanpay\Rayanpay;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Tests\Support\StubServer;
+use Extenbox\Multipay\Constants\IranCurrency;
 
 /**
  * The driver talks to the gateway with cURL, so it is pointed at the stub http

@@ -1,9 +1,9 @@
 <?php
 
-namespace Shetabit\Multipay\Abstracts;
+namespace Extenbox\Multipay\Abstracts;
 
 use Carbon\Carbon;
-use Shetabit\Multipay\Contracts\ReceiptInterface;
+use Extenbox\Multipay\Contracts\ReceiptInterface;
 
 abstract class Receipt implements ReceiptInterface
 {

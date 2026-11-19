@@ -1,19 +1,19 @@
 <?php
 
-namespace Shetabit\Multipay\Drivers\Novinopay;
+namespace Extenbox\Multipay\Drivers\Novinopay;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
-use Shetabit\Multipay\Abstracts\Driver;
-use Shetabit\Multipay\Contracts\ReceiptInterface;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\Exceptions\PreviouslyVerifiedException;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Receipt;
-use Shetabit\Multipay\RedirectionForm;
-use Shetabit\Multipay\Request;
-use Shetabit\Multipay\Traits\HasIranCurrency;
+use Extenbox\Multipay\Abstracts\Driver;
+use Extenbox\Multipay\Contracts\ReceiptInterface;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Exceptions\PreviouslyVerifiedException;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Receipt;
+use Extenbox\Multipay\RedirectionForm;
+use Extenbox\Multipay\Request;
+use Extenbox\Multipay\Traits\HasIranCurrency;
 
 class Novinopay extends Driver
 {

@@ -1,17 +1,17 @@
 <?php
 
-namespace Shetabit\Multipay\Drivers\Vandar;
+namespace Extenbox\Multipay\Drivers\Vandar;
 
 use GuzzleHttp\Client;
-use Shetabit\Multipay\Abstracts\Driver;
-use Shetabit\Multipay\Contracts\ReceiptInterface;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Receipt;
-use Shetabit\Multipay\RedirectionForm;
-use Shetabit\Multipay\Request;
-use Shetabit\Multipay\Traits\HasIranCurrency;
+use Extenbox\Multipay\Abstracts\Driver;
+use Extenbox\Multipay\Contracts\ReceiptInterface;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Receipt;
+use Extenbox\Multipay\RedirectionForm;
+use Extenbox\Multipay\Request;
+use Extenbox\Multipay\Traits\HasIranCurrency;
 
 class Vandar extends Driver
 {
@@ -44,7 +44,7 @@ class Vandar extends Driver
     /**
      * @return string
      * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Shetabit\Multipay\Exceptions\PurchaseFailedException
+     * @throws \Extenbox\Multipay\Exceptions\PurchaseFailedException
      */
     public function purchase(): string|int|null
     {
@@ -102,7 +102,7 @@ class Vandar extends Driver
     /**
      *
      * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Shetabit\Multipay\Exceptions\InvalidPaymentException
+     * @throws \Extenbox\Multipay\Exceptions\InvalidPaymentException
      */
     public function verify(): ReceiptInterface
     {
@@ -169,7 +169,7 @@ class Vandar extends Driver
 
     /**
      * @param $message
-     * @throws \Shetabit\Multipay\Exceptions\InvalidPaymentException
+     * @throws \Extenbox\Multipay\Exceptions\InvalidPaymentException
      */
     protected function notVerified(string|null $message, int|string $status = 0) : never
     {

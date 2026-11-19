@@ -1,14 +1,14 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
-use Shetabit\Multipay\Drivers\Local\Local;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\RedirectionForm;
-use Shetabit\Multipay\Request;
-use Shetabit\Multipay\Tests\TestCase;
+use Extenbox\Multipay\Drivers\Local\Local;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\RedirectionForm;
+use Extenbox\Multipay\Request;
+use Extenbox\Multipay\Tests\TestCase;
 
 class LocalTest extends TestCase
 {

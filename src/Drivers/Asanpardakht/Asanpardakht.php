@@ -1,15 +1,15 @@
 <?php
 
-namespace Shetabit\Multipay\Drivers\Asanpardakht;
+namespace Extenbox\Multipay\Drivers\Asanpardakht;
 
 use GuzzleHttp\Client;
-use Shetabit\Multipay\Abstracts\Driver;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Contracts\ReceiptInterface;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Receipt;
-use Shetabit\Multipay\RedirectionForm;
-use Shetabit\Multipay\Traits\HasIranCurrency;
+use Extenbox\Multipay\Abstracts\Driver;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Contracts\ReceiptInterface;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Receipt;
+use Extenbox\Multipay\RedirectionForm;
+use Extenbox\Multipay\Traits\HasIranCurrency;
 
 class Asanpardakht extends Driver
 {

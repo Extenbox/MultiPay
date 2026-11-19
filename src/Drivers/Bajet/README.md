@@ -9,7 +9,7 @@ refund or reversal endpoints, which are absent from that version.
 Configure `drivers.bajet` with credentials issued for your terminal:
 
 ```php
-use Shetabit\Multipay\Constants\IranCurrency;
+use Extenbox\Multipay\Constants\IranCurrency;
 
 $config['drivers']['bajet'] = [
     'apiUrl' => 'https://jetpay.mybajet.ir',
@@ -40,8 +40,8 @@ Credentials and terminal settings belong in private application configuration.
 ## Purchase and redirect
 
 ```php
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Payment;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Payment;
 
 $invoice = (new Invoice)->amount(1000)->detail([
     'orderId' => 'merchant-order-123',
@@ -100,7 +100,7 @@ your local payment record; it is not a new successful payment event.
 ## Inquiry and failures
 
 ```php
-use Shetabit\Multipay\Drivers\Bajet\Bajet;
+use Extenbox\Multipay\Drivers\Bajet\Bajet;
 
 $invoice = (new Invoice)->transactionId($storedReferenceId)
     ->detail('orderId', $storedOrderId);

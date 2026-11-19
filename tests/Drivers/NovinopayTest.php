@@ -1,14 +1,14 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
 use GuzzleHttp\Psr7\Response;
-use Shetabit\Multipay\Constants\IranCurrency;
-use Shetabit\Multipay\Drivers\Novinopay\Novinopay;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\Exceptions\PreviouslyVerifiedException;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Invoice;
+use Extenbox\Multipay\Constants\IranCurrency;
+use Extenbox\Multipay\Drivers\Novinopay\Novinopay;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Exceptions\PreviouslyVerifiedException;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Invoice;
 
 class NovinopayTest extends DriverTestCase
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Shetabit\Multipay\Tests;
+namespace Extenbox\Multipay\Tests;
 
-use Shetabit\Multipay\Constants\IranCurrency;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\RedirectionForm;
-use Shetabit\Multipay\Tests\Drivers\BarDriver;
+use Extenbox\Multipay\Constants\IranCurrency;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\RedirectionForm;
+use Extenbox\Multipay\Tests\Drivers\BarDriver;
 use Exception;
 
 class DriverTest extends TestCase

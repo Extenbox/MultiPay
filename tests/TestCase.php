@@ -1,12 +1,12 @@
 <?php
 
-namespace Shetabit\Multipay\Tests;
+namespace Extenbox\Multipay\Tests;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
-use Shetabit\Multipay\Payment;
-use Shetabit\Multipay\RedirectionForm;
-use Shetabit\Multipay\Request;
-use Shetabit\Multipay\Tests\Drivers\BarDriver;
+use Extenbox\Multipay\Payment;
+use Extenbox\Multipay\RedirectionForm;
+use Extenbox\Multipay\Request;
+use Extenbox\Multipay\Tests\Drivers\BarDriver;
 use ReflectionProperty;
 
 class TestCase extends BaseTestCase

@@ -1,10 +1,10 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
-use Shetabit\Multipay\Drivers\Sizpay\Sizpay;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\Invoice;
+use Extenbox\Multipay\Drivers\Sizpay\Sizpay;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Invoice;
 
 /**
  * The purchase and the successful verification of this driver talk SOAP to the

@@ -1,10 +1,10 @@
 <?php
 
-namespace Shetabit\Multipay\Tests;
+namespace Extenbox\Multipay\Tests;
 
 use Carbon\Carbon;
-use Shetabit\Multipay\Contracts\ReceiptInterface;
-use Shetabit\Multipay\Receipt;
+use Extenbox\Multipay\Contracts\ReceiptInterface;
+use Extenbox\Multipay\Receipt;
 
 class ReceiptTest extends TestCase
 {

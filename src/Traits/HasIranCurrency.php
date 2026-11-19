@@ -1,6 +1,6 @@
 <?php
 
-namespace Shetabit\Multipay\Traits;
+namespace Extenbox\Multipay\Traits;
 
 trait HasIranCurrency
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Shetabit\Multipay\Tests;
+namespace Extenbox\Multipay\Tests;
 
-use Shetabit\Multipay\RedirectionForm;
+use Extenbox\Multipay\RedirectionForm;
 use Error;
 use Exception;
 

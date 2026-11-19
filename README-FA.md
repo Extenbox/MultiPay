@@ -25,8 +25,6 @@
 
 در صورتی که از این پکیج خوشتون آمده و ازش استفاده می‌کنید می‌تونید با پرداخت مبلغ اندکی من رو حمایت کنید تا این پکیج رو بیشتر توسعه بدم و درگاه‌های جدیدتری بهش اضافه کنم.
 
-درصورتی که از Laravel استفاده میکنید میتونید از پکیج [shetabit/payment](https://github.com/shetabit/payment) استفاده کنید.
-
 # لیست محتوا
 
 - [درایور های موجود](#درایورهای-موجود)
@@ -111,14 +109,14 @@
 </div>
 
 ``` bash
-composer require shetabit/multipay
+composer require extenbox/multipay
 ```
 
 <div dir="rtl">
 
 ## تنظیمات
 
-a. ابتدا فایل حاوی تنظیمات را از مسیر `config/payment.php` به درون پروژه خود کپی کنید. (فایل تنظیمات رو میتونید از مسیر `vendor/shetabit/multipay/config/payment.php` نیز پیدا کرده و کپی کنید)
+a. ابتدا فایل حاوی تنظیمات را از مسیر `config/payment.php` به درون پروژه خود کپی کنید. (فایل تنظیمات رو میتونید از مسیر `vendor/extenbox/multipay/config/payment.php` نیز پیدا کرده و کپی کنید)
 
 b. درون فایل تنظیمات در قسمت `default driver` می‌توانید درایوری که قصد استفاده از ان را دارید قرار دهید تا تمامی پرداخت ها از آن طریق انجام شود.
 
@@ -158,7 +156,7 @@ c. سپس از روی کلاس `Payment` یک نمونه ایجاد کنید و 
 </div>
 
 ```php
-    use Shetabit\Multipay\Payment;
+    use Extenbox\Multipay\Payment;
 
     // load the config file from your project
     $paymentConfig = require('path/to/payment.php');
@@ -182,7 +180,7 @@ c. سپس از روی کلاس `Payment` یک نمونه ایجاد کنید و 
 
 ```php
 // At the top of the file.
-use Shetabit\Multipay\Invoice;
+use Extenbox\Multipay\Invoice;
 ...
 
 // Create new invoice.
@@ -227,8 +225,8 @@ $invoice->detail('detailName1','your detail1 goes here')
 
 ```php
 // At the top of the file.
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Payment;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Payment;
 ...
 
 // load the config file from your project
@@ -269,8 +267,8 @@ $payment->callbackUrl('http://yoursite.com/verify')->purchase(
 
 ```php
 // At the top of the file.
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Payment;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Payment;
 ...
 
 // load the config file from your project
@@ -308,8 +306,8 @@ return $payment->purchase(
 
 ```php
 // At the top of the file.
-use Shetabit\Multipay\Payment;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Payment;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
 ...
 
 // load the config file from your project
@@ -361,7 +359,7 @@ try {
 <div dir="rtl">
 
 
-کلاس درایوری که قصد ساختنش رو دارید باید کلاس `Shetabit\Multipay\Abstracts\Driver` رو به ارث ببره.
+کلاس درایوری که قصد ساختنش رو دارید باید کلاس `Extenbox\Multipay\Abstracts\Driver` رو به ارث ببره.
 
 به عنوان مثال:
 
@@ -370,9 +368,9 @@ try {
 ```php
 namespace App\Packages\PaymentDriver;
 
-use Shetabit\Multipay\Abstracts\Driver;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\{Contracts\ReceiptInterface, Invoice, Receipt};
+use Extenbox\Multipay\Abstracts\Driver;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\{Contracts\ReceiptInterface, Invoice, Receipt};
 
 class MyDriver extends Driver
 {
@@ -458,8 +456,8 @@ class MyDriver extends Driver
 
   ```php
   // At the top of the file.
-  use Shetabit\Multipay\Invoice;
-  use Shetabit\Multipay\Payment;
+  use Extenbox\Multipay\Invoice;
+  use Extenbox\Multipay\Payment;
   ...
   
   // load the config file from your project
@@ -488,8 +486,8 @@ class MyDriver extends Driver
 
   ```php
   // At the top of the file.
-  use Shetabit\Multipay\Invoice;
-  use Shetabit\Multipay\Payment;
+  use Extenbox\Multipay\Invoice;
+  use Extenbox\Multipay\Payment;
   ...
   
   // load the config file from your project
@@ -515,8 +513,8 @@ class MyDriver extends Driver
 
   ```php
   // At the top of the file.
-  use Shetabit\Multipay\Invoice;
-  use Shetabit\Multipay\Payment;
+  use Extenbox\Multipay\Invoice;
+  use Extenbox\Multipay\Payment;
   ...
   
   // load the config file from your project
@@ -545,8 +543,8 @@ class MyDriver extends Driver
 
   ```php
   // At the top of the file.
-  use Shetabit\Multipay\Invoice;
-  use Shetabit\Multipay\Payment;
+  use Extenbox\Multipay\Invoice;
+  use Extenbox\Multipay\Payment;
   ...
 
   // load the config file from your project
@@ -589,7 +587,7 @@ $payment->config(['wages' => [use Zarinpal documentation for values], 'key1' => 
 
   ```php
 // At the top of the file.
-use Shetabit\Multipay\Invoice;
+use Extenbox\Multipay\Invoice;
 ...
 
 
@@ -850,8 +848,8 @@ make help              # لیست تمام دستورات موجود
 
 </div>
 
-[ico-version]: https://img.shields.io/packagist/v/shetabit/multipay.svg?style=flat-square
-[ico-download]: https://img.shields.io/packagist/dt/shetabit/multipay.svg?color=%23F18&style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/extenbox/multipay.svg?style=flat-square
+[ico-download]: https://img.shields.io/packagist/dt/extenbox/multipay.svg?color=%23F18&style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-tests]: https://img.shields.io/github/actions/workflow/status/Extenbox/MultiPay/tests.yml?branch=master&label=Tests&style=flat-square
 [ico-code-style]: https://img.shields.io/github/actions/workflow/status/Extenbox/MultiPay/code-style.yml?branch=master&label=Code%20Style&style=flat-square
@@ -860,7 +858,7 @@ make help              # لیست تمام دستورات موجود
 
 [link-fa]: README-FA.md
 [link-en]: README.md
-[link-packagist]: https://packagist.org/packages/shetabit/multipay
+[link-packagist]: https://packagist.org/packages/extenbox/multipay
 [link-actions]: https://github.com/Extenbox/MultiPay/actions
 [link-tests]: https://github.com/Extenbox/MultiPay/actions/workflows/tests.yml
 [link-code-style]: https://github.com/Extenbox/MultiPay/actions/workflows/code-style.yml

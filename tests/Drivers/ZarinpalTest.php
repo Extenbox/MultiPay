@@ -1,19 +1,19 @@
 <?php
 
-namespace Shetabit\Multipay\Tests\Drivers;
+namespace Extenbox\Multipay\Tests\Drivers;
 
 use PHPUnit\Framework\Attributes\DataProvider;
-use Shetabit\Multipay\Abstracts\Driver;
-use Shetabit\Multipay\Drivers\Zarinpal\Strategies\Normal;
-use Shetabit\Multipay\Drivers\Zarinpal\Strategies\Sandbox;
-use Shetabit\Multipay\Drivers\Zarinpal\Strategies\Zaringate;
-use Shetabit\Multipay\Drivers\Zarinpal\Zarinpal;
-use Shetabit\Multipay\Exceptions\DriverNotFoundException;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Invoice;
+use Extenbox\Multipay\Abstracts\Driver;
+use Extenbox\Multipay\Drivers\Zarinpal\Strategies\Normal;
+use Extenbox\Multipay\Drivers\Zarinpal\Strategies\Sandbox;
+use Extenbox\Multipay\Drivers\Zarinpal\Strategies\Zaringate;
+use Extenbox\Multipay\Drivers\Zarinpal\Zarinpal;
+use Extenbox\Multipay\Exceptions\DriverNotFoundException;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Invoice;
 use ReflectionProperty;
-use Shetabit\Multipay\Constants\IranCurrency;
+use Extenbox\Multipay\Constants\IranCurrency;
 
 class ZarinpalTest extends DriverTestCase
 {

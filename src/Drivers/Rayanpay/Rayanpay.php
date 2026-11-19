@@ -1,20 +1,20 @@
 <?php
 
-namespace Shetabit\Multipay\Drivers\Rayanpay;
+namespace Extenbox\Multipay\Drivers\Rayanpay;
 
 use GuzzleHttp\Client;
-use Shetabit\Multipay\Abstracts\Driver;
-use Shetabit\Multipay\Contracts\ReceiptInterface;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Receipt;
-use Shetabit\Multipay\RedirectionForm;
+use Extenbox\Multipay\Abstracts\Driver;
+use Extenbox\Multipay\Contracts\ReceiptInterface;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Receipt;
+use Extenbox\Multipay\RedirectionForm;
 use DOMDocument;
 use DOMXPath;
 use DOMNodeList;
 use DOMElement;
-use Shetabit\Multipay\Traits\HasIranCurrency;
+use Extenbox\Multipay\Traits\HasIranCurrency;
 
 class Rayanpay extends Driver
 {

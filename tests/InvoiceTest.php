@@ -1,8 +1,8 @@
 <?php
 
-namespace Shetabit\Multipay\Tests;
+namespace Extenbox\Multipay\Tests;
 
-use Shetabit\Multipay\Invoice;
+use Extenbox\Multipay\Invoice;
 use stdClass;
 use Exception;
 

@@ -1,15 +1,15 @@
 <?php
 
-namespace Shetabit\Multipay;
+namespace Extenbox\Multipay;
 
-use Shetabit\Multipay\Contracts\DriverInterface;
-use Shetabit\Multipay\Contracts\ReceiptInterface;
-use Shetabit\Multipay\Exceptions\DriverNotFoundException;
-use Shetabit\Multipay\Exceptions\PreviouslyVerifiedException;
-use Shetabit\Multipay\Exceptions\TimeoutException;
-use Shetabit\Multipay\Exceptions\PurchaseFailedException;
-use Shetabit\Multipay\Traits\HasPaymentEvents;
-use Shetabit\Multipay\Traits\InteractsWithRedirectionForm;
+use Extenbox\Multipay\Contracts\DriverInterface;
+use Extenbox\Multipay\Contracts\ReceiptInterface;
+use Extenbox\Multipay\Exceptions\DriverNotFoundException;
+use Extenbox\Multipay\Exceptions\PreviouslyVerifiedException;
+use Extenbox\Multipay\Exceptions\TimeoutException;
+use Extenbox\Multipay\Exceptions\PurchaseFailedException;
+use Extenbox\Multipay\Traits\HasPaymentEvents;
+use Extenbox\Multipay\Traits\InteractsWithRedirectionForm;
 use ReflectionClass;
 use Exception;
 

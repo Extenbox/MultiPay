@@ -12,8 +12,6 @@
 
 This is a PHP Package for Payment Gateway Integration. This package supports `PHP 8.4+`.
 
-For **Laravel** integration you can use [shetabit/payment](https://github.com/shetabit/payment) package.
-
 > This package works with multiple drivers, and you can create custom drivers if you can't find them in the [current drivers list](#list-of-available-drivers) (below list).
 
 - [داکیومنت فارسی][link-fa]
@@ -116,12 +114,12 @@ For **Laravel** integration you can use [shetabit/payment](https://github.com/sh
 Via Composer
 
 ```bash
-composer require shetabit/multipay
+composer require extenbox/multipay
 ```
 
 ## Configure
 
-a. Copy `config/payment.php` into somewhere in your project. (you can also find it in `vendor/shetabit/multipay/config/payment.php` path).
+a. Copy `config/payment.php` into somewhere in your project. (you can also find it in `vendor/extenbox/multipay/config/payment.php` path).
 
 b. In the config file you can set the `default driver` to be used for all your payments and you can also change the driver at runtime.
 
@@ -152,7 +150,7 @@ Then fill the credentials for that gateway in the drivers array.
 c. Instantiate the `Payment` class and **pass configs to it** like the below:
 
 ```php
-    use Shetabit\Multipay\Payment;
+    use Extenbox\Multipay\Payment;
 
     // load the config file from your project
     $paymentConfig = require('path/to/payment.php');
@@ -172,7 +170,7 @@ In your code, use it like the below:
 
 ```php
 // At the top of the file.
-use Shetabit\Multipay\Invoice;
+use Extenbox\Multipay\Invoice;
 ...
 
 // Create new invoice.
@@ -213,8 +211,8 @@ We purchase the invoice to retrieve transaction id:
 
 ```php
 // At the top of the file.
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Payment;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Payment;
 ...
 
 // load the config file from your project
@@ -251,8 +249,8 @@ After purchasing the invoice, we can redirect the user to the bank payment page:
 
 ```php
 // At the top of the file.
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\Payment;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\Payment;
 ...
 
 // load the config file from your project
@@ -295,8 +293,8 @@ When user has completed the payment, the bank redirects them to your website, th
 
 ```php
 // At the top of the file.
-use Shetabit\Multipay\Payment;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\Payment;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
 ...
 
 // load the config file from your project
@@ -336,8 +334,8 @@ try {
 
   ```php
   // At the top of the file.
-  use Shetabit\Multipay\Invoice;
-  use Shetabit\Multipay\Payment;
+  use Extenbox\Multipay\Invoice;
+  use Extenbox\Multipay\Payment;
   ...
 
   // load the config file from your project
@@ -362,8 +360,8 @@ try {
 
   ```php
   // At the top of the file.
-  use Shetabit\Multipay\Invoice;
-  use Shetabit\Multipay\Payment;
+  use Extenbox\Multipay\Invoice;
+  use Extenbox\Multipay\Payment;
   ...
 
   // load the config file from your project
@@ -385,8 +383,8 @@ try {
 
   ```php
   // At the top of the file.
-  use Shetabit\Multipay\Invoice;
-  use Shetabit\Multipay\Payment;
+  use Extenbox\Multipay\Invoice;
+  use Extenbox\Multipay\Payment;
   ...
 
   // load the config file from your project
@@ -411,8 +409,8 @@ try {
 
   ```php
   // At the top of the file.
-  use Shetabit\Multipay\Invoice;
-  use Shetabit\Multipay\Payment;
+  use Extenbox\Multipay\Invoice;
+  use Extenbox\Multipay\Payment;
   ...
 
   // load the config file from your project
@@ -447,7 +445,7 @@ $payment->config(['wages' => [use Zarinpal documentation for values], 'key1' => 
 
   ```php
   // At the top of the file.
-  use Shetabit\Multipay\Invoice;
+  use Extenbox\Multipay\Invoice;
   ...
 
 
@@ -477,16 +475,16 @@ First you have to add the name of your driver, in the drivers array and also you
 ```
 
 Now you have to create a Driver Map Class that will be used to pay invoices.
-In your driver, You just have to extend `Shetabit\Multipay\Abstracts\Driver`.
+In your driver, You just have to extend `Extenbox\Multipay\Abstracts\Driver`.
 
 Eg. You created a class: `App\Packages\Multipay\Driver\MyDriver`.
 
 ```php
 namespace App\Packages\Multipay\Driver;
 
-use Shetabit\Multipay\Abstracts\Driver;
-use Shetabit\Multipay\Exceptions\InvalidPaymentException;
-use Shetabit\Multipay\{Contracts\ReceiptInterface, Invoice, RedirectionForm, Receipt};
+use Extenbox\Multipay\Abstracts\Driver;
+use Extenbox\Multipay\Exceptions\InvalidPaymentException;
+use Extenbox\Multipay\{Contracts\ReceiptInterface, Invoice, RedirectionForm, Receipt};
 
 class MyDriver extends Driver
 {
@@ -759,8 +757,8 @@ If you discover any security related issues, please report them privately throug
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/shetabit/multipay.svg?style=flat-square
-[ico-download]: https://img.shields.io/packagist/dt/shetabit/multipay.svg?color=%23F18&style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/extenbox/multipay.svg?style=flat-square
+[ico-download]: https://img.shields.io/packagist/dt/extenbox/multipay.svg?color=%23F18&style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-tests]: https://img.shields.io/github/actions/workflow/status/Extenbox/MultiPay/tests.yml?branch=master&label=Tests&style=flat-square
 [ico-code-style]: https://img.shields.io/github/actions/workflow/status/Extenbox/MultiPay/code-style.yml?branch=master&label=Code%20Style&style=flat-square
@@ -768,7 +766,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-coverage]: https://img.shields.io/codecov/c/github/Extenbox/MultiPay/master?label=Coverage&style=flat-square
 [link-fa]: README-FA.md
 [link-en]: README.md
-[link-packagist]: https://packagist.org/packages/shetabit/multipay
+[link-packagist]: https://packagist.org/packages/extenbox/multipay
 [link-actions]: https://github.com/Extenbox/MultiPay/actions
 [link-tests]: https://github.com/Extenbox/MultiPay/actions/workflows/tests.yml
 [link-code-style]: https://github.com/Extenbox/MultiPay/actions/workflows/code-style.yml

@@ -1,12 +1,12 @@
 <?php
 
-namespace Shetabit\Multipay\Abstracts;
+namespace Extenbox\Multipay\Abstracts;
 
-use Shetabit\Multipay\Constants\IranCurrency;
-use Shetabit\Multipay\Contracts\DriverInterface;
-use Shetabit\Multipay\Contracts\ReceiptInterface;
-use Shetabit\Multipay\Invoice;
-use Shetabit\Multipay\RedirectionForm;
+use Extenbox\Multipay\Constants\IranCurrency;
+use Extenbox\Multipay\Contracts\DriverInterface;
+use Extenbox\Multipay\Contracts\ReceiptInterface;
+use Extenbox\Multipay\Invoice;
+use Extenbox\Multipay\RedirectionForm;
 
 abstract class Driver implements DriverInterface
 {
