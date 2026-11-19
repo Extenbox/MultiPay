@@ -12,7 +12,6 @@
 
 This is a PHP Package for Payment Gateway Integration. This package supports `PHP 8.4+`.
 
-[Donate me](https://yekpay.me/mahdikhanzadi) if you like this package :sunglasses: :bowtie:
 
 For **Laravel** integration you can use [shetabit/payment](https://github.com/shetabit/payment) package.
 
@@ -20,7 +19,6 @@ For **Laravel** integration you can use [shetabit/payment](https://github.com/sh
 
 - [داکیومنت فارسی][link-fa]
 - [English documents][link-en]
-- [中文文档][link-zh]
 
 # List of contents
 
