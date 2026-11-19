@@ -68,7 +68,11 @@ class Local extends Driver
             'cancel' => Request::input('cancel')
         ];
 
-        $success = $data['transactionId'] && !$data['cancel'];
+        // A tampered callback may send anything (arrays, floats, objects) as
+        // the transaction id; only a string or an int may verify a purchase.
+        $success = $data['transactionId']
+            && !$data['cancel']
+            && (is_string($data['transactionId']) || is_int($data['transactionId']));
 
         if (!$success) {
             $this->notVerified(0);

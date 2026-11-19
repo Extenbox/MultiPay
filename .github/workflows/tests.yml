@@ -65,6 +65,26 @@ jobs:
           printf '::notice title=End-to-end payment flow::%s (exit=%s)\n' "$line" "$rc"
           exit $rc
 
+      # Publish the security-focused tests as an annotation, so their outcome is
+      # readable on the commit without digging through the job logs.
+      - name: Publish the security test result
+        if: matrix.php == '8.4' && matrix.dependencies == 'highest'
+        run: |
+          set +e
+          out="$(vendor/bin/phpunit --filter SecurityTest --testdox --colors=never 2>&1)"
+          rc=$?
+          set -e
+          printf '%s\n' "$out"
+          {
+            echo '### Security tests'
+            echo '```'
+            printf '%s\n' "$out"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          line="$(printf '%s' "$out" | LC_ALL=C tr -cd '\11\12\15\40-\176' | tr '\n' ' ' | tr -s ' ' | cut -c1-400)"
+          printf '::notice title=Security tests::%s (exit=%s)\n' "$line" "$rc"
+          exit $rc
+
   coverage:
     name: Code coverage
     runs-on: ubuntu-latest
