@@ -31,7 +31,7 @@ class SEPTest extends DriverTestCase
 
         $body = $this->requestJson();
 
-        $this->assertSame('token', $body['action']);
+        $this->assertSame('Token', $body['Action']);
         $this->assertSame('terminal-1', $body['TerminalId']);
         $this->assertSame($this->settings()['callbackUrl'], $body['RedirectUrl']);
         $this->assertSame($driver->getInvoice()->getUuid(), $body['ResNum']);
@@ -54,17 +54,11 @@ class SEPTest extends DriverTestCase
 
         $driver->detail([
             'mobile' => '09120000000',
-            'ResNum1' => 'first',
-            'ResNum2' => 'second',
-            'ResNum3' => 'third',
-            'ResNum4' => 'fourth',
         ])->amount(1000)->purchase();
 
         $body = $this->requestJson();
 
         $this->assertSame('09120000000', $body['CellNumber']);
-        $this->assertSame('first', $body['ResNum1']);
-        $this->assertSame('fourth', $body['ResNum4']);
     }
 
     public function testPurchaseFailsWithTheTranslatedErrorOfTheGateway(): void
@@ -84,7 +78,7 @@ class SEPTest extends DriverTestCase
 
         $this->assertSame($this->settings()['apiPaymentUrl'], $form->getAction());
         $this->assertSame('POST', $form->getMethod());
-        $this->assertSame(['Token' => 'token-1', 'GetMethod' => false], $form->getInputs());
+        $this->assertSame(['Token' => 'token-1'], $form->getInputs());
     }
 
     public function testVerifyReturnsAReceipt(): void
@@ -129,6 +123,9 @@ class SEPTest extends DriverTestCase
 
         $this->assertSame('reference-1', $body['RefNum']);
         $this->assertSame('terminal-1', $body['TerminalNumber']);
+        $this->assertSame('', $body['CellNumber']);
+        $this->assertSame('', $body['NationalCode']);
+        $this->assertTrue($body['IgnoreNationalcode']);
     }
 
     public function testVerifyFailsWhenTheCallbackReportsAnUnsuccessfulPayment(): void

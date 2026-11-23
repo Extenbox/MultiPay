@@ -48,22 +48,21 @@ class SEP extends Driver
     public function purchase(): string|int|null
     {
         $data = [
-            'action' => 'token',
+            'Action' => 'Token',
             'TerminalId' => $this->settings->terminalId,
             'Amount' => $this->convertAmountToRial($this->invoice->getAmount()),
             'ResNum' => $this->invoice->getUuid(),
             'RedirectUrl' => $this->settings->callbackUrl,
-            'CellNumber' => $this->invoice->getDetail('mobile') ?? '',
-            'ResNum1' => $this->invoice->getDetail('ResNum1') ?? '',
-            'ResNum2' => $this->invoice->getDetail('ResNum2') ?? '',
-            'ResNum3' => $this->invoice->getDetail('ResNum3') ?? '',
-            'ResNum4' => $this->invoice->getDetail('ResNum4') ?? '',
+            'CellNumber' => $this->invoice->getDetail('mobile') ?? $this->invoice->getDetail('phone') ?? '',
         ];
 
         $response = $this->client->post(
             $this->settings->apiGetToken,
             [
                 'json' => $data,
+                'headers' => [
+                    'Accept' => 'application/json',
+                ],
             ]
         );
 
@@ -76,8 +75,9 @@ class SEP extends Driver
         $jsonBody = $response->getBody()->getContents();
         $responseData = json_decode($jsonBody, true);
 
-        if ($responseData['status'] != 1) {
-            $this->purchaseFailed($responseData['errorCode']);
+        if (!isset($responseData['token'])) {
+            $errorCode = $responseData['errorCode'] ?? $responseData['status'] ?? 0;
+            $this->purchaseFailed($errorCode);
         }
 
         // set transaction id
@@ -98,7 +98,6 @@ class SEP extends Driver
             $payUrl,
             [
                 'Token' => $this->invoice->getTransactionId(),
-                'GetMethod' => false,
             ]
         );
     }
@@ -113,17 +112,28 @@ class SEP extends Driver
      */
     public function verify(): ReceiptInterface
     {
-        $status = (int)Request::input('Status');
-        if ($status !== 2) {
-            $this->purchaseFailed($status);
+        $status = Request::input('Status');
+        $state = Request::input('State');
+        $statusValue = $status ?? $state;
+        if ($statusValue !== null && $statusValue !== '' && is_numeric($statusValue) && (int) $statusValue !== 2) {
+            $this->purchaseFailed((int) $statusValue);
+        }
+
+        $refNum = Request::input('RefNum');
+        if ($refNum === null || $refNum === '') {
+            $this->notVerified(0);
         }
 
         $data = [
-            'RefNum' => Request::input('RefNum'),
             'TerminalNumber' => $this->settings->terminalId,
+            'RefNum' => $refNum,
+            'CellNumber' => $this->invoice->getDetail('mobile') ?? $this->invoice->getDetail('phone') ?? '',
+            'NationalCode' => $this->invoice->getDetail('national_code') ?? '',
+            'IgnoreNationalcode' => true,
         ];
 
-        if ($this->invoice->getTransactionId() !== Request::input('Token')) {
+        $token = Request::input('Token');
+        if ($token !== null && $token !== '' && $this->invoice->getTransactionId() !== $token) {
             $this->notVerified(-108);
         }
 
@@ -131,6 +141,9 @@ class SEP extends Driver
             $this->settings->apiVerificationUrl,
             [
                 'json' => $data,
+                'headers' => [
+                    'Accept' => 'application/json',
+                ],
             ]
         );
 

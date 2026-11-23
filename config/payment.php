@@ -306,7 +306,7 @@ return [
             'currency' => IranCurrency::TOMAN,
         ],
         'sep' => [
-            'apiGetToken' => 'https://sep.shaparak.ir/onlinepg/onlinepg',
+            'apiGetToken' => 'https://sep.shaparak.ir/OnlinePG/OnlinePG',
             'apiPaymentUrl' => 'https://sep.shaparak.ir/OnlinePG/OnlinePG',
             'apiVerificationUrl' => 'https://sep.shaparak.ir/verifyTxnRandomSessionkey/ipg/VerifyTransaction',
             'terminalId' => '',
