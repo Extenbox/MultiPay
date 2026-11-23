@@ -114,7 +114,7 @@ class Cryptomus extends Driver
             );
         }
 
-        return new Receipt('cryptomus', $result['uuid'])->detail($result);
+        return (new Receipt('cryptomus', $result['uuid']))->detail($result);
     }
 
     /**

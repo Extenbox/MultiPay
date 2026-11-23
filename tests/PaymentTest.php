@@ -63,7 +63,7 @@ class PaymentTest extends TestCase
         $this->expectException(DriverNotFoundException::class);
         $this->expectExceptionMessage('Driver source not found. Please update the package.');
 
-        new MockPaymentManager($config)->via('ghost');
+        (new MockPaymentManager($config))->via('ghost');
     }
 
     public function testItRefusesADriverThatDoesNotImplementTheDriverContract(): void
@@ -75,7 +75,7 @@ class PaymentTest extends TestCase
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('Driver must be an instance of Contracts\DriverInterface.');
 
-        new MockPaymentManager($config)->via('invalid');
+        (new MockPaymentManager($config))->via('invalid');
     }
 
     public function testConfigCanBeModified(): void

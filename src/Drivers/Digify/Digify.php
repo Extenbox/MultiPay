@@ -117,7 +117,7 @@ class Digify extends Driver
             throw new InvalidPaymentException($body['status_display'] ?? 'پرداخت تایید نشد');
         }
 
-        return new Receipt('digify', $body['reference_code'] ?? $orderUuid)->detail($body);
+        return (new Receipt('digify', $body['reference_code'] ?? $orderUuid))->detail($body);
     }
 
     /**

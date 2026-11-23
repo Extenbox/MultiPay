@@ -34,7 +34,7 @@ class ZarinpalTest extends DriverTestCase
     protected function fakeHttp(Driver $driver, array $responses, array $clientOptions = []) : void
     {
         if ($driver instanceof Zarinpal) {
-            $driver = new ReflectionProperty($driver, 'strategy')->getValue($driver);
+            $driver = (new ReflectionProperty($driver, 'strategy'))->getValue($driver);
         }
 
         parent::fakeHttp($driver, $responses, $clientOptions);
@@ -49,7 +49,7 @@ class ZarinpalTest extends DriverTestCase
 
             $this->assertInstanceOf(
                 $strategy,
-                new ReflectionProperty($driver, 'strategy')->getValue($driver),
+                (new ReflectionProperty($driver, 'strategy'))->getValue($driver),
                 "Mode [$mode] should use ".$strategy
             );
         }

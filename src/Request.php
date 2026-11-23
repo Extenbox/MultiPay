@@ -45,7 +45,7 @@ final class Request
             return (self::$overwrittenMethods['input'])($name);
         }
 
-        return new self()->requestData[$name] ?? null;
+        return (new self())->requestData[$name] ?? null;
     }
 
     /**
@@ -57,7 +57,7 @@ final class Request
             return (self::$overwrittenMethods['post'])($name);
         }
 
-        return new self()->postData[$name] ?? null;
+        return (new self())->postData[$name] ?? null;
     }
 
     /**
@@ -69,7 +69,7 @@ final class Request
             return (self::$overwrittenMethods['get'])($name);
         }
 
-        return new self()->getData[$name] ?? null;
+        return (new self())->getData[$name] ?? null;
     }
 
     /**

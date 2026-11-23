@@ -180,7 +180,7 @@ class Zibal extends Driver
             throw new InvalidPaymentException($this->translateStatus($body['result']), $body['result']);
         }
 
-        return new Receipt('Zibal', $body['refNumber'])->detail($body);
+        return (new Receipt('Zibal', $body['refNumber']))->detail($body);
     }
 
     private function translateStatus(int|string|null $status): string

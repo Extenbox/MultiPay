@@ -38,7 +38,7 @@ class AtipayTest extends DriverTestCase
         $driver = $this->driver();
 
         // The token is the one the purchase received from the gateway.
-        new ReflectionProperty($driver, 'tokenId')->setValue($driver, 'token-1');
+        (new ReflectionProperty($driver, 'tokenId'))->setValue($driver, 'token-1');
 
         $form = $driver->pay();
 

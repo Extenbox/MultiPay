@@ -96,14 +96,14 @@ class RedirectionFormTest extends TestCase
         // $view, $action, $inputs and $method parameters.
         RedirectionForm::setViewRenderer($this->rendererReturning('ok'));
 
-        $this->assertSame('ok', new RedirectionForm('https://example.com/pay')->render());
+        $this->assertSame('ok', (new RedirectionForm('https://example.com/pay'))->render());
 
         RedirectionForm::setViewRenderer(fn (): string => 'never-called');
 
         $this->expectException(Error::class);
         $this->expectExceptionMessage('Unknown named parameter $view');
 
-        new RedirectionForm('https://example.com/pay')->render();
+        (new RedirectionForm('https://example.com/pay'))->render();
     }
 
     public function testItIsRenderedWhenCastedToString(): void

@@ -54,7 +54,8 @@ class TestCase extends BaseTestCase
      */
     protected function setStaticProperty(string $class, string $property, $value) : void
     {
-        new ReflectionProperty($class, $property)->setValue(null, $value);
+        $rp = new ReflectionProperty($class, $property);
+        $rp->setValue(null, $value);
     }
 
     private function environmentSetUp(): void

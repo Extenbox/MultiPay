@@ -172,7 +172,7 @@ class Skrill extends Driver
 
         $referenceId = $transaction['mb_transaction_id'] ?? (string) $transactionId;
 
-        return new Receipt('skrill', $referenceId)->detail($transaction);
+        return (new Receipt('skrill', $referenceId))->detail($transaction);
     }
 
     /**

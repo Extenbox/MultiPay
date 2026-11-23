@@ -32,7 +32,7 @@ class SoapDriversTest extends TestCase
         foreach ($drivers as $driver) {
             $this->assertStringContainsString(
                 'SoapClient',
-                (string) file_get_contents(new ReflectionClass($driver)->getFileName()),
+                (string) file_get_contents((new ReflectionClass($driver))->getFileName()),
                 $driver.' is expected to use SoapClient'
             );
         }

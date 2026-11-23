@@ -145,8 +145,7 @@ class TorobPay extends Driver
         }
 
 
-        return new Receipt('torobpay', $body['response']['transactionId'])
-            ->detail($body);
+        return (new Receipt('torobpay', $body['response']['transactionId']))->detail($body);
     }
 
     public function revert(string $paymentToken): bool

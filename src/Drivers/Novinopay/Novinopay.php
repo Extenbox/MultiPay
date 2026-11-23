@@ -132,7 +132,7 @@ class Novinopay extends Driver
             throw new InvalidPaymentException('درگاه بدون شماره پیگیری تراکنش پاسخ داد.');
         }
 
-        return new Receipt('novinopay', $body['data']['ref_id'])->detail($body['data']);
+        return (new Receipt('novinopay', $body['data']['ref_id']))->detail($body['data']);
     }
 
     /**
