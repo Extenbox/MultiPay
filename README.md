@@ -10,7 +10,7 @@
 [![Static Analysis][ico-static-analysis]][link-static-analysis]
 [![Code Coverage][ico-coverage]][link-coverage]
 
-This is a PHP Package for Payment Gateway Integration. This package supports `PHP 8.4+`.
+This is a PHP Package for Payment Gateway Integration. This package supports `PHP 8.1+`.
 
 > This package works with multiple drivers, and you can create custom drivers if you can't find them in the [current drivers list](#list-of-available-drivers) (below list).
 
@@ -701,7 +701,7 @@ Appearance of payment form can be customized via config parameter of `local` dri
 ## Testing
 
 Every pull request and every push to `master` is checked by [GitHub Actions][link-actions]: the test suite runs on
-PHP 8.4 and 8.5 (against both the lowest and the highest supported dependencies), the coding style is checked with
+PHP 8.1, 8.2, 8.3, 8.4 and 8.5 (against both the lowest and the highest supported dependencies), the coding style is checked with
 PHP_CodeSniffer, the sources are analysed with PHPStan and the code coverage of the test suite is measured and has to
 stay above 75%.
 

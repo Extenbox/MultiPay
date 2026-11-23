@@ -26,7 +26,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Changed
 - **Breaking:** the package and its namespace were renamed to `extenbox/multipay` and `Extenbox\Multipay`: the
   `composer require` command and every `use` statement have to follow.
-- **Breaking:** PHP 8.4 is now the minimum required version (was PHP 8.0).
+- The minimum supported PHP version is now 8.1 (was 8.4 after the recent modernization). Composer constraints and CI
+  now cover PHP 8.1 to 8.5.
 - The package was modernized for PHP 8.4. Every parameter, return value and property of `src/` declares a type now
   (365 parameters, 466 return values and 103 properties, none left untyped), promoted constructor properties and
   `readonly` are used where a value never changes, methods that only ever throw are typed `never`,
