@@ -55,10 +55,13 @@ class Payping extends Driver
             return null;
         }
 
-        $key = array_find(
-            array_keys($body),
-            static fn ($key): bool => strcasecmp((string) $key, $name) === 0
-        );
+        $key = null;
+        foreach (array_keys($body) as $candidate) {
+            if (strcasecmp((string) $candidate, $name) === 0) {
+                $key = $candidate;
+                break;
+            }
+        }
 
         return $key === null ? null : $body[$key];
     }
