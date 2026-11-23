@@ -28,7 +28,52 @@ class AqayepardakhtTest extends DriverTestCase
         $this->assertSame('transaction-1', $driver->amount(1000)->purchase());
         $this->assertSame('transaction-1', $driver->getInvoice()->getTransactionId());
         $this->assertRequestedUrl($this->settings()['apiPurchaseUrl']);
-        $this->assertSame('aqayepardakht-pin', $this->requestJson()['pin']);
+        $this->assertSame('aqayepardakht-pin', $this->requestForm()['pin']);
+    }
+
+    public function testPurchaseSendsCallbackAndInvoiceDetailsAsFormData(): void
+    {
+        $driver = $this->driver([
+            'callbackUrl' => 'https://example.com/callback',
+            'invoice_id' => 'from-settings',
+            'mobile' => '09120000000',
+            'email' => 'settings@example.com',
+        ]);
+        $driver->detail([
+            'invoice_id' => 'invoice-42',
+            'mobile' => '09350000000',
+            'email' => 'buyer@example.com',
+        ]);
+        $this->fakeHttp($driver, [$this->jsonResponse(['status' => 'success', 'transid' => 'transaction-1'])]);
+
+        $driver->amount(1000)->purchase();
+
+        $body = $this->requestForm();
+
+        $this->assertSame('https://example.com/callback', $body['callback']);
+        $this->assertSame('invoice-42', $body['invoice_id']);
+        $this->assertSame('09350000000', $body['mobile']);
+        $this->assertSame('buyer@example.com', $body['email']);
+    }
+
+    public function testPurchaseOmitsEmptyOptionalFields(): void
+    {
+        $driver = $this->driver([
+            'callbackUrl' => 'https://example.com/callback',
+            'invoice_id' => '',
+            'mobile' => '',
+            'email' => '',
+        ]);
+        $this->fakeHttp($driver, [$this->jsonResponse(['status' => 'success', 'transid' => 'transaction-1'])]);
+
+        $driver->amount(1000)->purchase();
+
+        $body = $this->requestForm();
+
+        $this->assertSame('https://example.com/callback', $body['callback']);
+        $this->assertArrayNotHasKey('invoice_id', $body);
+        $this->assertArrayNotHasKey('mobile', $body);
+        $this->assertArrayNotHasKey('email', $body);
     }
 
     public function testPurchaseSendsTheAmountInToman(): void
@@ -38,7 +83,7 @@ class AqayepardakhtTest extends DriverTestCase
 
         $driver->amount(10000)->purchase();
 
-        $this->assertSame(1000, $this->requestJson()['amount']);
+        $this->assertSame('1000', (string) $this->requestForm()['amount']);
     }
 
     public function testPurchaseUsesTheSandboxPinInSandboxMode(): void
@@ -48,7 +93,7 @@ class AqayepardakhtTest extends DriverTestCase
 
         $driver->amount(1000)->purchase();
 
-        $this->assertSame('sandbox', $this->requestJson()['pin']);
+        $this->assertSame('sandbox', $this->requestForm()['pin']);
     }
 
     public function testPurchaseFailsWithTheTranslatedErrorOfTheGateway(): void
@@ -92,7 +137,7 @@ class AqayepardakhtTest extends DriverTestCase
         $this->assertSame('tracking-1', $receipt->getReferenceId());
         $this->assertRequestedUrl($this->settings()['apiVerificationUrl']);
 
-        $body = $this->requestJson();
+        $body = $this->requestForm();
 
         $this->assertSame('transaction-1', $body['transid']);
         $this->assertSame('aqayepardakht-pin', $body['pin']);

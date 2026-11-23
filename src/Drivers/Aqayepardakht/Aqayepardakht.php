@@ -43,17 +43,20 @@ class Aqayepardakht extends Driver
             'pin' => $this->settings->mode === 'normal' ? $this->settings->pin : 'sandbox',
             'amount' => $this->convertAmountToToman($this->invoice->getAmount()),
             'callback' => $this->settings->callbackUrl,
-            'invoice_id' => $this->settings->invoice_id,
-            'mobile' => $this->settings->mobile,
-            'email' => $this->settings->email,
+            'invoice_id' => $this->invoice->getDetail('invoice_id') ?? $this->settings->invoice_id ?? null,
+            'mobile' => $this->invoice->getDetail('mobile') ?? $this->invoice->getDetail('phone') ?? $this->settings->mobile ?? null,
+            'email' => $this->invoice->getDetail('email') ?? $this->settings->email ?? null,
         ];
+
+        // Aqayepardakht API v2 expects form-data (see official Postman collection).
+        $data = array_filter($data, static fn ($value) => $value !== null && $value !== '');
 
         $response = $this->client
             ->request(
                 'POST',
                 $this->settings->apiPurchaseUrl,
                 [
-                    'json' => $data,
+                    'form_params' => $data,
                     'headers' => [
                         'Accept' => 'application/json',
                     ],
@@ -87,9 +90,9 @@ class Aqayepardakht extends Driver
      */
     public function verify(): ReceiptInterface
     {
-        $tracking_number = Request::post('tracking_number');
-        $transid = Request::post('transid');
-        if ($tracking_number === null || $tracking_number === ''|| $transid === ''|| $transid === null) {
+        $tracking_number = Request::input('tracking_number');
+        $transid = Request::input('transid');
+        if ($tracking_number === null || $tracking_number === '' || $transid === '' || $transid === null) {
             $this->notVerified('پرداخت ناموفق.');
         }
         $data = [
@@ -102,7 +105,7 @@ class Aqayepardakht extends Driver
                 'POST',
                 $this->settings->apiVerificationUrl,
                 [
-                    'json' => $data,
+                    'form_params' => $data,
                     'headers' => [
                         'Accept' => 'application/json',
                     ],
@@ -164,6 +167,10 @@ class Aqayepardakht extends Driver
             -11 => 'درگاه در انتظار تایید و یا غیرفعال است.',
             -12 => 'امکان ارسال درخواست برای این پذیرنده وجود ندارد.',
             -13 => 'شماره کارت باید 16 رقم چسبیده بهم باشد.',
+            -14 => 'درگاه برروی سایت دیگری درحال استفاده است.',
+            -15 => 'آدرس کال بک ارسال شده با دامنه تایید شده درگاه پرداخت مغایرت دارد.',
+            -16 => 'ارجاع دهنده نامعتبر است (Referrer ارسال نشده است).',
+            -17 => 'مقدار ارسال شده برای پارامتر callback_method باید POST یا GET باشد.',
             0 => 'پرداخت انجام نشد.',
             1 => 'پرداخت با موفقیت انجام شد.',
             2 => 'تراکنش قبلا وریفای شده است.',
