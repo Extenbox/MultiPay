@@ -13,7 +13,7 @@ class AzkiTest extends DriverTestCase
     /**
      * The driver signs its requests with an AES key, which has to be hexadecimal.
      */
-    private const string KEY = '00112233445566778899aabbccddeeff00112233445566778899aabbccddeeff';
+    private const KEY = '00112233445566778899aabbccddeeff00112233445566778899aabbccddeeff';
 
     protected function driverName() : string
     {

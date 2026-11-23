@@ -13,7 +13,7 @@ class SadadTest extends DriverTestCase
     /**
      * The driver signs its requests with a base64 encoded triple DES key.
      */
-    private const string KEY = 'MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0';
+    private const KEY = 'MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0';
 
     protected function driverName() : string
     {

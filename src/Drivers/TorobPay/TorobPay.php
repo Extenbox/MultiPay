@@ -18,7 +18,7 @@ class TorobPay extends Driver
 {
     use HasIranCurrency;
 
-    private const string OAUTH_URL = '/api/online/v1/oauth/token';
+    private const OAUTH_URL = '/api/online/v1/oauth/token';
     const PURCHASE_URL = '/api/online/payment/v1/token';
     const VERIFY_URL = '/api/online/payment/v1/verify';
     const REVERT_URL = '/api/online/payment/v1/revert';
