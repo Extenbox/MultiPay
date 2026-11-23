@@ -139,7 +139,7 @@ class SEPTest extends DriverTestCase
 
     public function testVerifyFailsWhenTheTokenOfTheCallbackDoesNotMatchTheInvoice(): void
     {
-        $this->fakeRequest(['Status' => 2, 'Token' => 'another-token']);
+        $this->fakeRequest(['Status' => 2, 'Token' => 'another-token', 'RefNum' => 'reference-1']);
 
         $this->expectException(InvalidPaymentException::class);
         $this->expectExceptionMessage('اطلاعات پرداخت با فاکتور همخوانی ندارد.');
