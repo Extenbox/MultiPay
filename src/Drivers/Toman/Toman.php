@@ -37,11 +37,37 @@ class Toman extends Driver
         $this->client = new Client();
     }
 
+    /**
+     * Normalize the configured deal payload to an associative array.
+     */
+    protected function dealData(): array
+    {
+        $data = $this->settings->data ?? null;
+
+        if (is_string($data)) {
+            $data = json_decode($data);
+
+            if (json_last_error() !== JSON_ERROR_NONE || ! is_object($data)) {
+                throw new InvalidPaymentException('اطلاعات ارسالی درگاه تومان باید یک شیء JSON معتبر باشد');
+            }
+
+            $data = get_object_vars($data);
+        } elseif (is_object($data)) {
+            $data = get_object_vars($data);
+        }
+
+        if (! is_array($data) || ($data !== [] && array_is_list($data))) {
+            throw new InvalidPaymentException('اطلاعات ارسالی درگاه تومان باید به صورت آرایه یا شیء باشد');
+        }
+
+        return $data;
+    }
+
     // Purchase the invoice, save its transactionId and finaly return it.
     public function purchase(): string|int|null
     {
         $url = $this->base_url . '/users/me/shops/' . $this->shop_slug . '/deals';
-        $data = $this->settings->data;
+        $data = $this->dealData();
 
         $response = $this->client
             ->request(
