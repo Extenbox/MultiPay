@@ -85,6 +85,26 @@ jobs:
           printf '::notice title=Security tests::%s (exit=%s)\n' "$line" "$rc"
           exit $rc
 
+      # Publish the Iran Kish driver tests as an annotation, so the result of the
+      # tokenization -> redirect -> confirmation flow is readable on the commit.
+      - name: Publish the Iran Kish test result
+        if: always() && matrix.php == '8.4' && matrix.dependencies == 'highest'
+        run: |
+          set +e
+          out="$(vendor/bin/phpunit --filter IrankishTest --testdox --colors=never 2>&1)"
+          rc=$?
+          set -e
+          printf '%s\n' "$out"
+          {
+            echo '### Iran Kish driver'
+            echo '```'
+            printf '%s\n' "$out"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          line="$(printf '%s' "$out" | LC_ALL=C tr -cd '\11\12\15\40-\176' | tr '\n' ' ' | tr -s ' ' | cut -c1-400)"
+          printf '::notice title=Iran Kish driver::%s (exit=%s)\n' "$line" "$rc"
+          exit $rc
+
   coverage:
     name: Code coverage
     runs-on: ubuntu-latest

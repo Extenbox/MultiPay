@@ -96,10 +96,15 @@ class Irankish extends Driver
         curl_setopt($ch, CURLOPT_SSL_CIPHER_LIST, 'DEFAULT@SECLEVEL=1');
 
         $result = curl_exec($ch);
+        curl_close($ch);
+
+        if ($result === false) {
+            throw new PurchaseFailedException('خطا در برقراری ارتباط با درگاه پرداخت.');
+        }
 
         $response = json_decode($result, true);
 
-        if (!$response || $response['responseCode'] != '00') {
+        if (!$response || ($response['responseCode'] ?? null) != '00') {
             // error has happened
             $message = $response['description'] ?? 'خطا در هنگام درخواست برای پرداخت رخ داده است.';
             throw new PurchaseFailedException($message);
@@ -136,15 +141,21 @@ class Irankish extends Driver
     public function verify() : ReceiptInterface
     {
         $status = Request::input('responseCode');
-        if (Request::input('responseCode') != '00') {
+        if ($status != '00') {
+            $this->notVerified($status);
+        }
+
+        $token = Request::input('token');
+        $retrievalReferenceNumber = Request::input('retrievalReferenceNumber');
+        if (!$token || !$retrievalReferenceNumber) {
             $this->notVerified($status);
         }
 
         $data = [
             'terminalId' => $this->settings->terminalId,
-            'retrievalReferenceNumber' => Request::input('retrievalReferenceNumber'),
+            'retrievalReferenceNumber' => $retrievalReferenceNumber,
             'systemTraceAuditNumber' => Request::input('systemTraceAuditNumber'),
-            'tokenIdentity' => Request::input('token'),
+            'tokenIdentity' => $token,
         ];
 
         $dataString = json_encode($data);
@@ -160,13 +171,18 @@ class Irankish extends Driver
         curl_setopt($ch, CURLOPT_SSL_CIPHER_LIST, 'DEFAULT@SECLEVEL=1');
 
         $result = curl_exec($ch);
-        if ($result === false || !$data['retrievalReferenceNumber']) {
+        curl_close($ch);
+
+        if ($result === false) {
             $this->notVerified($status);
         }
 
-        json_decode($result, true);
+        $response = json_decode($result, true);
+        if (!$response || ($response['responseCode'] ?? null) != '00') {
+            $this->notVerified($response['responseCode'] ?? $status);
+        }
 
-        return $this->createReceipt($data['retrievalReferenceNumber']);
+        return $this->createReceipt($retrievalReferenceNumber);
     }
 
     /**

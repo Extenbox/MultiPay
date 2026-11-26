@@ -146,4 +146,33 @@ class IrankishTest extends DriverTestCase
 
         $this->driver()->verify();
     }
+
+    public function testVerifyFailsWhenConfirmationIsRejected(): void
+    {
+        $this->fakeRequest([
+            'responseCode' => '00',
+            'retrievalReferenceNumber' => 'rrn-1',
+            'systemTraceAuditNumber' => 'trace-1',
+            'token' => 'token-1',
+        ]);
+
+        $this->server->queue([$this->stubResponse(['responseCode' => 920])]);
+
+        $this->expectException(InvalidPaymentException::class);
+        $this->expectExceptionMessage('شناسه نشانه نامعتبر می باشد');
+
+        $this->driver()->verify();
+    }
+
+    public function testVerifyFailsWhenTheCallbackHasNoToken(): void
+    {
+        $this->fakeRequest([
+            'responseCode' => '00',
+            'retrievalReferenceNumber' => 'rrn-1',
+        ]);
+
+        $this->expectException(InvalidPaymentException::class);
+
+        $this->driver()->verify();
+    }
 }
